@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.samue.interactivefamilystory.R;
+import com.example.samue.interactivefamilystory.main.model.Choice;
 import com.example.samue.interactivefamilystory.main.model.Page;
 import com.example.samue.interactivefamilystory.main.model.Story;
 
@@ -58,10 +59,28 @@ public class StoryActivity extends AppCompatActivity {
         Drawable image = ContextCompat.getDrawable(this, page.getImageID());
         storyImageView.setImageDrawable(image);
 
+        //get string from page then set the format special characters to name taken from edit text.
         String pageText = getString(page.getTextID());
         pageText = String.format(pageText, name);
         storyTextView.setText(pageText);
-        choice1button.setText(page.getChoice1().getmTextID());
+
+
+
+
+        if (page.isFinalPage()){
+            choice1button.setVisibility(View.INVISIBLE);
+
+        }else {
+
+            loadButtons(page);
+        }
+
+    }
+
+    private void loadButtons(final Page page) {
+        String buttonText = getString(page.getChoice1().getmTextID());
+        buttonText = String.format(buttonText,name);
+        choice1button.setText(buttonText);
         choice1button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,15 +88,16 @@ public class StoryActivity extends AppCompatActivity {
                 loadPage(nextPage);
             }
         });
-        choice2button.setText(page.getChoice2().getmTextID());
+        String buttonText2 = getString(page.getChoice2().getmTextID());
+        buttonText2 = String.format(buttonText2, name);
+        choice2button.setText(buttonText2);
         choice2button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int nextPage = page.getChoice2().getmNextPage();
-                    loadPage(nextPage);
-                }
+                loadPage(nextPage);
+            }
 
         });
-
     }
 }

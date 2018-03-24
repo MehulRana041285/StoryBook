@@ -44,6 +44,8 @@ public Story(){
             new Choice(R.string.brother_choice1, 4),
             new Choice(R.string.brother_choice2,6));
 
+    pages[6] = new Page(R.drawable.baby, R.string.player);
+
 
 }
 
