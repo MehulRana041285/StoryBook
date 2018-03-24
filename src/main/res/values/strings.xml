@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">InteractiveFamilyStory</string>
+
+    <string name="daddy">Daddy,\nDaddy,\nWhat do you see?</string>
+    <string name="daddy_choice1">I see mommy flying by me.</string>
+    <string name="daddy_choice2">I see grandpa gardening by me.</string>
+
+    <string name="mommy"> Mommy,\nMommy,\nWhat do you see?</string>
+    <string name="mommy_choice1">I see grandma knitting by me.</string>
+    <string name="mommy_choice2">I see grandpa gardening by me.</string>
+
+
+    <string name = "grandma">Grandma,\nGrandma,\nWhat do you see?</string>
+    <string name="grandma_choice1">I see grandpa gardening by me.</string>
+    <string name="grandma_choice2">I see my grandson skateboarding by me.</string>
+
+
+    <string name = "grandpa">Grandpa,\nGrandpa,\nWhat do you see?</string>
+    <string name="grandpa_choice1">I see grandma knitting by me.</string>
+    <string name="grandpa_choice2">I see my granddaughter smiling at me.</string>
+
+    <string name = "sister">Sister,\nSister,\nWhat do you see?</string>
+    <string name="sister_choice1">I see my brother skateboarding by me.</string>
+    <string name="sister_choice2">I see %1$s looking at me</string>
+
+    <string name = "brother">Brother,\nBrother,\nWhat do you see?</string>
+    <string name="brother_choice1">I see my sister smiling by me.</string>
+    <string name="brother_choice2">I see %1$s looking at me</string>
+
+    <string name="player">%1$s,\n%1$s,\nWhat do you see?</string>
+    <string name="player_choice1">I see</string>
+
+
+
+</resources>
