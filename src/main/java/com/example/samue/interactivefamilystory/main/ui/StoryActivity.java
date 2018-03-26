@@ -1,6 +1,7 @@
 package com.example.samue.interactivefamilystory.main.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.example.samue.interactivefamilystory.main.model.Story;
 public class StoryActivity extends AppCompatActivity {
 
     private String name;
+    private Bitmap usersPicture = null;
 
     private Story story;
     private ImageView storyImageView;
@@ -44,7 +46,7 @@ public class StoryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
         if (name == null || name.isEmpty()){
-            name = "children";
+            name = "Baby";
         }
         Log.d(TAG,name);
 
@@ -65,10 +67,15 @@ public class StoryActivity extends AppCompatActivity {
         storyTextView.setText(pageText);
 
 
-
-
         if (page.isFinalPage()){
+            if(usersPicture == null){
+            storyImageView.setImageResource(R.drawable.brother);
+            } else {
+
+                storyImageView.setImageBitmap(usersPicture);
+            }
             choice1button.setVisibility(View.INVISIBLE);
+            choice2button.setText("I see...");
 
         }else {
 

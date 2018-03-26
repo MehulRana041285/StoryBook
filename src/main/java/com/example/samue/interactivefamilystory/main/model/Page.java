@@ -32,6 +32,11 @@ public class Page {
         isFinalPage = true;
     }
 
+    public Page(int textID){
+        this.textID = textID;
+        isFinalPage = true;
+    }
+
 
     public boolean isFinalPage() {
         return isFinalPage;
