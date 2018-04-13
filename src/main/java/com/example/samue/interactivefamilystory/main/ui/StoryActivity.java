@@ -17,6 +17,8 @@ import com.example.samue.interactivefamilystory.main.model.Choice;
 import com.example.samue.interactivefamilystory.main.model.Page;
 import com.example.samue.interactivefamilystory.main.model.Story;
 
+import java.util.Stack;
+
 
 public class StoryActivity extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class StoryActivity extends AppCompatActivity {
     private TextView storyTextView;
     private Button choice1button;
     private Button choice2button;
+    private Stack<Integer> pageStack = new Stack<Integer>();
 
     public static final String TAG = StoryActivity.class.getSimpleName();
 
@@ -58,6 +61,10 @@ public class StoryActivity extends AppCompatActivity {
     }
 
     private void loadPage(int pageNumber) {
+
+        //build pagestack to navigate pages.
+        pageStack.push(pageNumber);
+
         final Page page = story.getPage(pageNumber);
         Drawable image = ContextCompat.getDrawable(this, page.getImageID());
         storyImageView.setImageDrawable(image);
@@ -125,5 +132,15 @@ public class StoryActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        pageStack.pop();
+        if(pageStack.isEmpty()) {
+            super.onBackPressed();
+        } else {
+            loadPage(pageStack.pop());
+        }
     }
 }

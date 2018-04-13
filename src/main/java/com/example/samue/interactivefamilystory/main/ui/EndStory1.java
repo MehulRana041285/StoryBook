@@ -28,18 +28,18 @@ public class EndStory1 extends AppCompatActivity {
         ArrayList<Page> pages = new ArrayList<>();
 
         pages.add(new Page(R.drawable.daddy,
-                R.string.daddy));
+                R.string.daddy_last_page));
 
         pages.add(new Page(R.drawable.mom,
-                R.string.mommy));
+                R.string.mommy_last_page));
 
-        pages.add(new Page(R.drawable.grandpa, R.string.grandpa));
+        pages.add(new Page(R.drawable.grandpa, R.string.grandpa_last_page));
 
-        pages.add(new Page(R.drawable.grandma2, R.string.grandma));
+        pages.add(new Page(R.drawable.grandma2, R.string.grandma_last_page));
 
-        pages.add(new Page(R.drawable.brother, R.string.brother));
+        pages.add(new Page(R.drawable.brother, R.string.brother_last_page));
 
-        pages.add(new Page(R.drawable.baby,R.string.mommy));
+        pages.add(new Page(R.drawable.baby,R.string.player_last_page));
 
 
         mStoryAdapter = new StoryAdapter(this,pages);
