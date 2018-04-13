@@ -36,10 +36,10 @@ public class StoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story);
 
-        storyImageView = (ImageView) findViewById(R.id.story_image_view);
-        storyTextView = (TextView) findViewById(R.id.story_text_view);
-        choice1button = (Button) findViewById(R.id.next_page_button1);
-        choice2button = (Button) findViewById(R.id.next_page_button2);
+        storyImageView = findViewById(R.id.story_image_view);
+        storyTextView = findViewById(R.id.story_text_view);
+        choice1button = findViewById(R.id.next_page_button1);
+        choice2button = findViewById(R.id.next_page_button2);
 
 
 
@@ -49,6 +49,7 @@ public class StoryActivity extends AppCompatActivity {
             name = "Baby";
         }
         Log.d(TAG,name);
+        usersPicture = intent.getExtras().getParcelable("picture");
 
         story = new Story();
         loadPage(0);
@@ -67,20 +68,38 @@ public class StoryActivity extends AppCompatActivity {
         storyTextView.setText(pageText);
 
 
-        if (page.isFinalPage()){
-            if(usersPicture == null){
-            storyImageView.setImageResource(R.drawable.brother);
+        if (page.isFinalPage()) {
+            if (usersPicture == null) {
+                storyImageView.setImageResource(R.drawable.brother);
             } else {
 
                 storyImageView.setImageBitmap(usersPicture);
             }
             choice1button.setVisibility(View.INVISIBLE);
             choice2button.setText("I see...");
+            loadLastPage();
+
+        }else if(page.isEndStory()) {
+
+
 
         }else {
 
             loadButtons(page);
         }
+
+    }
+
+    private void loadLastPage() {
+
+        choice2button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                Intent intent = new Intent(StoryActivity.this, EndStory1.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

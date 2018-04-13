@@ -15,6 +15,7 @@ public class Page {
     private Choice choice2;
 
     private boolean isFinalPage = false;
+    private boolean endStory = false;
 
 
     public Page(int imageID, int textID, Choice choice1, Choice choice2){
@@ -37,6 +38,13 @@ public class Page {
         isFinalPage = true;
     }
 
+    public Page(){
+        endStory = true;
+    }
+
+    public boolean isEndStory(){
+        return endStory;
+    }
 
     public boolean isFinalPage() {
         return isFinalPage;

@@ -4,9 +4,10 @@
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false"/>
+        android:required="false" />
 
     <application
+        android:name=".main.FamilyStoryApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.ui.StoryActivity"></activity>
+        <activity android:name=".main.ui.StoryActivity"
+            android:parentActivityName=".main.ui.MainActivity"/>
+        <activity android:name=".main.ui.EndStory1"
+            >
+
+        </activity>
     </application>
 
 </manifest>

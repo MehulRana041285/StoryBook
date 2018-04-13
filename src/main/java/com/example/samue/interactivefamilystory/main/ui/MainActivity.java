@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nameField = (EditText) findViewById(R.id.edit_name_text);
-        startButton = (Button) findViewById(R.id.start_button);
+        nameField = findViewById(R.id.edit_name_text);
+        startButton = findViewById(R.id.start_button);
 
         //Set button click listener and set name to use for resource.
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        cameraButton = (ImageButton) findViewById(R.id.camera_button);
+        cameraButton = findViewById(R.id.camera_button);
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,5 +75,11 @@ public class MainActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             thumbnailImage = (Bitmap) extras.get("data");
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        nameField.setText("");
     }
 }
