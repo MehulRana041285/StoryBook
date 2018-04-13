@@ -39,6 +39,8 @@ public class EndStory1 extends AppCompatActivity {
 
         pages.add(new Page(R.drawable.brother, R.string.brother_last_page));
 
+        pages.add(new Page(R.drawable.daughter, R.string.sister_last_page));
+
         pages.add(new Page(R.drawable.baby,R.string.player_last_page));
 
 
