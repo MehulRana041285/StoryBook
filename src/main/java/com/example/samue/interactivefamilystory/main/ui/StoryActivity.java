@@ -52,6 +52,7 @@ public class StoryActivity extends AppCompatActivity {
             name = "Baby";
         }
         Log.d(TAG,name);
+        //get picture from mainactivity.
         usersPicture = intent.getExtras().getParcelable("picture");
 
         story = new Story();
@@ -77,7 +78,7 @@ public class StoryActivity extends AppCompatActivity {
 
         if (page.isFinalPage()) {
             if (usersPicture == null) {
-                storyImageView.setImageResource(R.drawable.brother);
+                storyImageView.setImageResource(R.drawable.baby);
             } else {
 
                 storyImageView.setImageBitmap(usersPicture);
